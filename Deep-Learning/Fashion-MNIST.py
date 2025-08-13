@@ -19,24 +19,24 @@ test_images = test_images / 255.0
 
 # 3. Build the model
 model = keras.Sequential([
-    keras.layers.Flatten(input_shape=(28, 28)),  # Flatten 28x28 -> 784
-    keras.layers.Dense(128, activation='relu'),  # Hidden layer
-    keras.layers.Dense(10, activation='softmax') # Output layer (10 classes)
+    keras.layers.Flatten(input_shape=(28, 28)), 
+    keras.layers.Dense(128, activation='relu'),  
+    keras.layers.Dense(10, activation='softmax') 
 ])
 
-# 4. Compile the model
+# Compile the model
 model.compile(optimizer='adam',
               loss='sparse_categorical_crossentropy',
               metrics=['accuracy'])
 
-# 5. Train the model
+# Train the model
 model.fit(train_images, train_labels, epochs=10)
 
-# 6. Evaluate the model
+# Evaluate the model
 test_loss, test_acc = model.evaluate(test_images, test_labels)
-print(f"\n Test Accuracy: {test_acc*100:.2f}%")
+print(f"Test Accuracy: {test_acc*100:.2f}%")
 
-# 7. Make predictions
+# Make predictions
 predictions = model.predict(test_images)
 
 # Function to plot image + prediction
@@ -61,7 +61,7 @@ def plot_image(i, predictions_array, true_label, img):
         color=color
     )
 
-# 8. Visualize first 15 test images with predictions
+# Visualize first 15 test images with predictions
 num_rows = 3
 num_cols = 5
 plt.figure(figsize=(2*2*num_cols, 2*num_rows))
@@ -73,6 +73,6 @@ plt.show()
 
 # Example single prediction
 index = 0
-print("\n Example Prediction:")
+print("Example Prediction:")
 print("Predicted:", class_names[np.argmax(predictions[index])])
 print("Actual:", class_names[test_labels[index]])

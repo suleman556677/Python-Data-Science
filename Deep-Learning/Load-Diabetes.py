@@ -25,7 +25,7 @@ print("Mean Squared Error:", mean_squared_error(y_test, y_pred))
 print("R² Score:", r2_score(y_test, y_pred))
 
 
-X_bmi = diabetes.data[:, np.newaxis, 2]  # BMI feature only
+X_bmi = diabetes.data[:, np.newaxis, 2]
 
 
 X_train_bmi, X_test_bmi, y_train_bmi, y_test_bmi = train_test_split(X_bmi, y, test_size=0.2, random_state=42)
